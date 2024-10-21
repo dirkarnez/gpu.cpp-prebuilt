@@ -46,10 +46,16 @@ jobs:
           curl ${{ matrix.compiler.url }} -L --output compiler &&^
           7z.exe x compiler
           
-      - name: curl cmake-3.24.0-windows-x86_64.zip
-        shell: cmd
-        run: curl https://github.com/Kitware/CMake/releases/download/v3.24.0/cmake-3.24.0-windows-x86_64.zip -L --output cmake-3.24.0-windows-x86_64.zip && dir && 7z.exe x cmake-3.24.0-windows-x86_64.zip
+      # - name: curl cmake-3.24.0-windows-x86_64.zip
+      #   shell: cmd
+      #   run: curl https://github.com/Kitware/CMake/releases/download/v3.24.0/cmake-3.24.0-windows-x86_64.zip -L --output cmake-3.24.0-windows-x86_64.zip && dir && 7z.exe x cmake-3.24.0-windows-x86_64.zip
 
+
+          
+      - name: curl cmake
+        shell: cmd
+        run: curl https://github.com/Kitware/CMake/releases/download/v3.30.5/cmake-3.30.5-windows-x86_64.zip -L --output cmake-3.30.5-windows-x86_64.zip && 7z.exe x cmake-3.30.5-windows-x86_64.zip
+        
       - name: curl PortableGit-2.38.1-64-bit.7z.exe
         shell: cmd
         run: curl https://github.com/git-for-windows/git/releases/download/v2.38.1.windows.1/PortableGit-2.38.1-64-bit.7z.exe -L --output PortableGit-2.38.1-64-bit.7z.exe && dir && 7z.exe x PortableGit-2.38.1-64-bit.7z.exe -o"PortableGit-2.38.1-64-bit"
@@ -102,7 +108,7 @@ jobs:
             set PATH=^
             ${{ github.workspace }}\mingw64;^
             ${{ github.workspace }}\mingw64\bin;^
-            ${{ github.workspace }}\cmake-3.24.0-windows-x86_64\bin;
+            ${{ github.workspace }}\cmake-3.30.5-windows-x86_64\bin;
             set CD_LINUX=%CD:\=/%
             gcc --version &&^
             cd ${{ env.libraryName }} &&^
