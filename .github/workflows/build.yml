@@ -111,7 +111,6 @@ jobs:
             ${{ github.workspace }}\PortableGit-2.38.1-64-bit\bin;^
             ${{ github.workspace }}\cmake-3.30.5-windows-x86_64\bin;
             set CD_LINUX=%CD:\=/%
-            gcc --version &&^
             cd ${{ env.libraryName }} &&^
             cmake.exe -LH -G "Visual Studio 17 2022" -A x64 ^ 
             -DCMAKE_BUILD_TYPE=Release ^
